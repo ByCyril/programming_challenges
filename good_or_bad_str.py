@@ -18,19 +18,22 @@ def good_or_bad(i):
 			q = 0
 		elif s == '?':
 			q += 1
-
-		if c + q > 3 or v + q > 5:
+		print(v,c,q)
+		if c + q >= 3 or v + q >= 5:
 			return 0
-
+	print(v,c,q)
 	return 1
 
 
 
 
 
-print(good_or_bad('a???ycgy?ips?ubxdkr?a?psiqrrs?ysysnrstiozvcvkbooj?jizy?chlrxgik?zxomjwzemz'))
-
-
-print(good_or_bad('a?????baaaa?'))
+# print(good_or_bad('a???ycgy?ips?ubxdkr?a?psiqrrs?ysysnrstiozvcvkbooj?jizy?chlrxgik?zxomjwzemz'))
+# print(good_or_bad('aeioup??'))
+# print(good_or_bad('bcdaeiou??'))
+# print(good_or_bad('a?????baaaa?'))
+# print(good_or_bad('bbbbabbbb'))
+# print(good_or_bad('t'))
+print(good_or_bad('d?ea?glo?l?s'))
 
  
