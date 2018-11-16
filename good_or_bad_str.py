@@ -9,17 +9,17 @@ def good_or_bad(i):
 
 	for s in i:
 		if s in vowels:
-			vowel_count += 1
-			cont_count = 0
-			q_marks = 0
+			v += 1
+			c = 0
+			q = 0
 		elif s not in vowels and s != '?':
-			vowel_count = 0
-			cont_count += 1
-			q_marks = 0
+			v = 0
+			c += 1
+			q = 0
 		elif s == '?':
-			q_marks += 1
+			q += 1
 
-		if cont_count + q_marks > 3 or vowel_count + q_marks > 5:
+		if c + q > 3 or v + q > 5:
 			return 0
 
 	return 1
