@@ -3,15 +3,26 @@ import UIKit
 
 let list = LinkedList()
 
+list.pushMultipleValues([1,800,956,1432,11])
 
-
-list.pushMultipleValues([0,1,2,3,4,5,6,7,8,9])
-
-
+// Prints all the values
 list.printAllValues()
 print("")
-print(list.getListCount())
 
+// Gets all data
+let allItems = list.getAllValues()
+for item in allItems {
+    print(item.data)
+}
 
+print("")
+
+// Remove first and last elements
+list.popFirstValue()
+list.popLastValue()
+
+// Gets the n - 1 elements. n = total number of elements
+let singleVal = list.getValue(at: 5)
+print(singleVal!)
 
 

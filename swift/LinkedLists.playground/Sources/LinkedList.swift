@@ -1,15 +1,15 @@
+
 import UIKit
 
 public class LinkedList {
-    
 
     private var head: Node?
     private var count = 0
     
-    public init() {
-        
-    }
+    public init() {}
     
+    
+    // MARK:  Push single value
     public func pushSingleValue(_ val: Int) {
         var current = head
         
@@ -30,12 +30,14 @@ public class LinkedList {
         
     }
     
+    // MARK:  Push multiple values
     public func pushMultipleValues(_ values: [Int]) {
         for val in values {
             self.pushSingleValue(val)
         }
     }
     
+    // MARK:  Remove first value
     public func popFirstValue() {
         let current = head
         
@@ -48,6 +50,7 @@ public class LinkedList {
         self.count -= 1
     }
     
+    // MARK:  Remove last value
     public func popLastValue() {
         
         var current = head
@@ -64,17 +67,18 @@ public class LinkedList {
         self.count -= 1
     }
     
+    // MARK:  Delete item at index
     public func delete(at index: Int) {
         var current = head
         
-        if index - 1 > self.count {
+        if index > self.count - 1 {
             return
         }
         
         if index == 0 {
             self.popFirstValue()
             return
-        } else if index == self.count {
+        } else if index == self.count - 1 {
             self.popLastValue()
             return
         }
@@ -92,10 +96,24 @@ public class LinkedList {
         
     }
     
+    // MARK:  Get specific value at index
+    public func getValue(at index: Int) -> Int? {
+        
+        var current = head
+        
+        for _ in 0..<index {
+            current = current!.next
+        }
+        
+        return current!.data
+    }
+    
+    // MARK:  Get total list count
     public func getListCount() -> Int {
         return count
     }
     
+    // MARK:  See all values
     public func printAllValues() {
         var current = head
         
@@ -104,6 +122,19 @@ public class LinkedList {
             current = current!.next
         }
         print(current!.data!)
+    }
+    // MARK:  Get all values in array
+    public func getAllValues() -> [Node] {
+        
+        var current = head
+        var nodeArray = [Node]()
+        
+        while current!.next != nil {
+            nodeArray.append(current!)
+            current = current!.next
+        }
+        nodeArray.append(current!)
+        return nodeArray
     }
     
 }
