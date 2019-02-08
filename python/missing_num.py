@@ -3,26 +3,18 @@
 # Challenge Description: Given a list of sorted numbers increasing by one, find the nth missing number.
 
 
-def missing_num(nums, n):
-	checker = nums[0]
-	flag = 0
+def missing_num(nums, nth):
 	i = 0
-	
-	while i < len(nums):
-		num = nums[i]
-
-		if checker == num:
+	flag = 0
+	for n in range(nums[0], nums[len(nums) - 1] + 1):
+		if n == nums[i]:
 			i += 1
-			checker += 1
-		else:
+		else: 
 			flag += 1
 
-			if flag == n:
-				return checker
-			else:
-				checker += 1
+		if flag == nth:
+			return n
 
 	return -1
 
-
-print(missing_num([1,2,5,7,8,10], 0))
+print(missing_num([1,2,5,7,8,10,15], 5))
