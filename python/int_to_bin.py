@@ -8,7 +8,7 @@ def binary(i):
 
 	while n >= 1:
 		r = int(n) % 2
-		results = str(int(r)) + results
+		results = str(r) + results
 		n = n / 2
 
 	return results
