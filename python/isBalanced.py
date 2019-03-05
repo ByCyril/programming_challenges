@@ -1,35 +1,23 @@
 
 
 
-def isBalanced(s):
-    dict = {'[': 1, '(': 2, '{': 3, ']': -1, ')': -2, '}': -3}
-    stack = []
+def isBalanced(S):
 
-    for i in range(0, len(s)):
-        char = s[i]
-        if char in dict:
-            bracketCode = dict[char]
-            
-            if bracketCode > 0:
-                stack.append(bracketCode)
-            else:
-            	if len(stack) > 0:
-            		if (bracketCode * -1) == stack[-1]:
-            			del stack[-1]
-            		else:
-            			return "NO"
-            	else:
-            		return "NO"
+	bracket_key = {'[': 1, '(': 2, '{': 3, ']': -1, ')': -2, '}': -3}
+	stack = []
+
+	for b in S:
+		key = bracket_key[b]
+
+		if key > 0:
+			stack.append(key)
+		elif abs(key) == stack[-1]:
+			del stack[-1]
+		else:
+			return False
+
+	return len(stack) == 0
 
 
 
-                    
-    if len(stack) == 0:
-        return "YES"
-    else:
-        return "NO"
-
-
-r = isBalanced(testCase)
-
-print(r)
+print(isBalanced(testCase))
